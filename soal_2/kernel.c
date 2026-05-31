@@ -237,7 +237,7 @@ void main() {
                color = 0x06; // orange/brown
                printString("fall mode");
             } else if (strcmp(name, "radiant")) {
-               color = 0x0B; // bright cyan
+               color = 0x0D; // pink
                printString("radiant mode");
             }
          } else if (startsWith(cmd, "triangle ")) {
