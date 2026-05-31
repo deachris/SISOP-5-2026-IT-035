@@ -23,14 +23,15 @@ cat > rootfs/etc/passwd << EOF
 root:$ROOTPASS:0:0:root:/root:/bin/sh
 henn:$HENNPASS:1001:100:henn:/home/henn:/bin/sh
 hann:$HANNPASS:1002:101:hann:/home/hann:/bin/sh
-viii:$VIIIPASS:1003:101:viii:/home/viii:/bin/sh
-kids:$KIDSPASS:1004:101:kids:/home/kids:/bin/sh
+viii:$VIIIPASS:1003:103:viii:/home/viii:/bin/sh
+kids:$KIDSPASS:1004:102:kids:/home/kids:/bin/sh
 EOF
 
 cat > rootfs/etc/group << EOF
 root:x:0:
 henn:x:100:henn
-hann:x:101:hann,viii
+hann:x:101:hann
+viii:x:103:viii
 kids:x:102:hann,viii,kids
 EOF
 
@@ -67,16 +68,16 @@ chown -R 1004:102 rootfs/home/kids
 chmod 700 rootfs/root
 
 # Akses henn
-chmod 755 rootfs/home/henn
+chmod 700 rootfs/home/henn
 
 # Akses hann
-chmod 775 rootfs/home/hann
+chmod 750 rootfs/home/hann
 
 # Akses viii
-chmod 775 rootfs/home/viii
+chmod 750 rootfs/home/viii
 
 # Akses kids
-chmod 770 rootfs/home/kids
+chmod 750 rootfs/home/kids
 
 chmod 1777 rootfs/tmp
 
