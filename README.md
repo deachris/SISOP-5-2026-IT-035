@@ -8,7 +8,7 @@
 **Farewell Party**
 
 #### Penjelasan
-1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
+## 1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
 ```
 $ mkdir soal_1
 $ cd soal_1
@@ -530,3 +530,30 @@ rm -f osboot/bzImage osboot/single.gz osboot/multi.gz osboot/farewell.iso
 ```
 Untuk nama file zipnya adalah `farewell_backup_[DDMMYYYY-HHMMSS].zip` dengan timestamp menggunakan waktu saat itu. Kemudian, file tersebut disimpan dalam bentuk zip. Setelah berhasil melakukan backup, file aslinya dihapus.
 
+### OUTPUT
+
+
+### Soal 2
+**Season**
+
+#### Penjelasan
+Download template zip yang diberikan pada soal dan unzip agar sesuai dengan struktur soal.
+`$ gdown 14rOog6VbT6sxjp3s_GJoTW7hgE6FAtmo -O template.zip`
+
+1. Melengkapi `kernel.asm` dan mengisi fungsi `_getChar`.
+
+```
+_getChar:
+    push bp
+    mov bp, sp
+
+    mov ah, 0x00
+    int 0x16
+
+    mov ah, 0
+
+    pop bp
+    ret
+```
+
+2. 
