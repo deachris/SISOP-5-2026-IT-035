@@ -596,8 +596,18 @@ User `viii` dapat mengakses ke `/home/{viii,kids}` dan tidak bisa ke `/root` dan
 User kids dapat mengakses ke /home/kids dan tidak bisa ke /root dan /home/{henn,hann,viii}
 <img width="670" height="350" alt="image" src="https://github.com/user-attachments/assets/6993d0dc-3d61-44fa-a809-ee934145b20a" />
 
+8. Test akses internet
+<img width="870" height="603" alt="image" src="https://github.com/user-attachments/assets/40dc37f2-bc20-4ca9-b1b0-a8eacb4c937a" />
+Pada hasil ini, OS bisa mendownload tetapi ketika menjalankan `ping 8.8.8.8`, tampilan terus seperti di screenshot.
+
+9. Menjalankan `backup.sh`
+<img width="902" height="140" alt="image" src="https://github.com/user-attachments/assets/b08ca69f-7010-43c9-bcf5-b634041f241f" />
+
+Hasil backup akan berada di direktori `osboot`:
+<img width="910" height="79" alt="image" src="https://github.com/user-attachments/assets/8217d63c-f3ff-4249-8797-c0e0286cfce0" />
+
 #### Kendala
-Tidak bisa melakukan akses internet.
+Belum bisa menjalankan program fuse.
 
 ### Soal 2
 **Season**
