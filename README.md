@@ -558,6 +558,22 @@ Untuk nama file zipnya adalah `farewell_backup_[DDMMYYYY-HHMMSS].zip` dengan tim
 - Membuka `/dev`
 <img width="790" height="394" alt="image" src="https://github.com/user-attachments/assets/a1a90f12-8899-42bc-abad-663b1dc60585" />
 
+- Membuka `/proc`
+<img width="794" height="355" alt="image" src="https://github.com/user-attachments/assets/4560db4e-23b6-4113-8405-b031e751accd" />
+
+- Membuka `/sys`, `etc`, `/tmp`, dan `/root`
+<img width="797" height="226" alt="image" src="https://github.com/user-attachments/assets/5556e2ed-a0a4-4ab3-bf55-ec6bd8ba206d" />
+
+7. Menjalankan `./qemu.sh --multi`
+- Login sebagai root
+<img width="748" height="570" alt="image" src="https://github.com/user-attachments/assets/ed151d4a-5ebb-458d-97a5-aeb06080d9f3" />
+ 
+- Masuk ke direktori lain (root bisa akses apapun)
+<img width="822" height="71" alt="image" src="https://github.com/user-attachments/assets/3b72147f-d520-4533-baf2-966f0a25d1f6" />
+
+
+#### Kendala
+Tidak bisa melakukan akses internet.
 
 ### Soal 2
 **Season**
