@@ -8,7 +8,7 @@
 **Farewell Party**
 
 #### Penjelasan
-# 1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
+1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
 ```
 $ mkdir soal_1
 $ cd soal_1
@@ -615,6 +615,7 @@ int strcmp(char *str1, char *str2) {
     return str1[i] == '\0' && str2[i] == '\0';
 }
 ```
+Fungsi ini untuk membandingkan dua string apakah isinya sama atau tidak. Perulangan tersebut akan memeriksa karakter satu per satu. 
 
 Fungsi `startsWith()`
 ```
@@ -627,6 +628,7 @@ int startsWith(char *str, char *prefix) {
     return 1;
 }
 ```
+Fungsi ini akan mengecek apakah sebuah string diawali kata tertentu yang diperlukan. Perulangan ini akan membandingkan karakter dari prefix satu per satu dengan string utama, jika ada yang tidak cocok return 0. 
 
 Fungsi `atoi()`
 ```
@@ -646,6 +648,7 @@ int atoi(char *str) {
     return result;
 }
 ```
+Fungsi atoi adalah untuk mengubah string angka menjadi bilangan bulat integer. Pertama akan dicek apakah ada tanda minus di depan, jika ada maka variabel neg = 1 dan akan dibaca dari karakter keduanya. Kemudian, setiap karakter angka dikonversi dengan mengalikan angka sebelumnya dengan 10 lalu digit baru akan ditambahkan di belakangnya.
 
 Fungsi `intToString()`
 ```
@@ -680,6 +683,7 @@ void intToString(int n, char *buffer) {
    buffer[j] = '\0';
 }
 ```
+Fungsi ini mengubah integer menjadi string kembali. Jika angkanya 0 maka akan langsung 0. Jika negatif maka tandanya disimpan lalu digit dibaca satu per satu dari belakang untuk disimpan ke array `temp`. Kemudian, di akhir array `temp` tersebut dibaca dari belakang ke depan karena urutan penyimpanannya dari belakang, sehingga urutan angkanya akan sesuai.
 
 3. Menambahkan fitur `add` untuk fitur pertambahan pada sistem operasi.
 
