@@ -726,3 +726,22 @@ Kondisi ketika command user adalah `help`, maka akan mencetak command-command ap
 
 2. Make run
 <img width="902" height="818" alt="image" src="https://github.com/user-attachments/assets/3a3a1a2b-e872-4486-8e09-25375a5bd6c5" />
+
+Bochs akan muncul di atas terminal saat ini.
+<img width="787" height="541" alt="image" src="https://github.com/user-attachments/assets/36fef3b8-5758-4687-9780-bed2bc649fb2" />
+
+- Untuk command `help`:
+<img width="781" height="536" alt="image" src="https://github.com/user-attachments/assets/221a2e6b-8e5a-41f7-b875-1641063c89f4" />
+
+- Untuk command `check`, `add`, `sub`, dan `fac`:
+<img width="787" height="539" alt="image" src="https://github.com/user-attachments/assets/65230131-17e2-4939-8e67-badd0ef859d1" />
+
+- Untuk command `season`:
+<img width="791" height="547" alt="image" src="https://github.com/user-attachments/assets/7ee25c2a-6862-4ad2-aef9-c6c7b81cce28" />
+
+- Untuk command `triangle`:
+<img width="774" height="550" alt="image" src="https://github.com/user-attachments/assets/a9cb4892-5c3d-4bd2-a840-3fe534cc128d" />
+
+- Untuk command `clear`:
+<img width="761" height="535" alt="image" src="https://github.com/user-attachments/assets/be5792c8-d3ab-4333-8df4-5f4ef2a3ad72" />
+<img width="781" height="537" alt="image" src="https://github.com/user-attachments/assets/005a1563-d5e1-4815-804c-bb8d4afc1e19" />
