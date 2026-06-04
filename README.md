@@ -8,7 +8,7 @@
 **Farewell Party**
 
 #### Penjelasan
-## 1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
+# 1. Membuat file dengan struktur yang sudah ditentukan dalam soal.
 ```
 $ mkdir soal_1
 $ cd soal_1
@@ -555,5 +555,174 @@ _getChar:
     pop bp
     ret
 ```
+Pada kode assembly di atas, berfungsi untuk menunggu user menginput command dan mengambil karakter dari command tersebut. Pertama, fungsi menyimpan kondisi program dengan `push bp`, `mov bp sp`. Lalu fungsi dengan BIOS menunggu dan membaca input user melalui perintah `int 0x16`. Setelah command dimasukkan, BIOS akan memberikan informasi karakter dan kode fisik tombolnya, lalu baris `mov ah, 0` membuang kode fisik tadi agar yang tersisa hanya karakternya saja. Kemudian, kondisi program dikembalikan dengan `pop bp` dan mengirim karakter hasil bacaan ke bagian program yang memanggilnya.
 
-2. 
+2. Melengkapi file `kernel.c` untuk membuat instruksi check dan mengaplikasikan fitur yang ada pada template.
+
+Untuk instruksi check, ketika command dari user adalah `check`, maka output yang diberikan adalah `ok`.
+```
+if (strcmp(cmd, "check")) {
+            printString("ok");
+```
+
+3. Menambahkan fitur `add` untuk fitur pertambahan pada sistem operasi.
+
+```
+else if (startsWith(cmd, "add ")) {
+            i = 4;
+            j = 0;
+            while (cmd[i] != ' ' && j < 15) {
+                a[j++] = cmd[i++];
+            }
+            a[j] = '\0';
+            i++;
+            j = 0;
+            while (cmd[i] != '\0') {
+                b[j++] = cmd[i++];
+            }
+            b[j] = '\0';
+            result = atoi(a) + atoi(b);
+            intToString(result, buffer);
+            printString(buffer);
+}
+```
+Kondisi ketika command user adalah `add ` dan memasukkan dua angka untuk dijumlahkan. Program akan membaca karakter setelah `add ` lalu melakukan perulangan `while (cmd[i] != ' ')` untuk membaca karakter satu per satu dan menyimpannya di array a sampai ketemu spasi sebagai angka pertama. Kemudian masuk ke loop kedua untuk membaca sisa karakter sampai akhir string dan menyimpannya ke array b sebagai angka kedua. Setelah keduanya dibaca, fungsi `atoi(a)` dan `atoi(b)` dipanggil ke variabel result agar hasilnya ditambahkan dengan bilangan bulat. Setelah itu, hasil penjumlahan diubah kembali menjadi string agar bisa ditampilkan ke user melalui `printString`. 
+
+4. Menambahkan fitur `sub` untuk fitur pengurangan pada sistem operasi.
+
+```
+else if (startsWith(cmd, "sub ")) {
+            i = 4;
+            j = 0;
+            while (cmd[i] != ' ' && j < 15) {
+                 a[j++] = cmd[i++];
+            }
+            a[j] = '\0';
+            i++;
+            j = 0;
+
+            while (cmd[i] != '\0') {
+                b[j++] = cmd[i++];
+            }
+            b[j] = '\0';
+            result = atoi(a) - atoi(b);
+            intToString(result, buffer);
+            printString(buffer);
+}
+```
+Kondisi ketika command user adalah `sub ` dan memasukkan dua angka untuk dikurangkan. Program akan membaca karakter setelah `sub ` lalu melakukan perulangan `while (cmd[i] != ' ')` untuk membaca karakter satu per satu dan menyimpannya di array a sampai ketemu spasi sebagai angka pertama. Kemudian masuk ke loop kedua untuk membaca sisa karakter sampai akhir string dan menyimpannya ke array b sebagai angka kedua. Setelah keduanya dibaca, fungsi `atoi(a)` dan `atoi(b)` dipanggil ke variabel result agar hasil yang diubah menjadi bilangan bulat dapat dikurangkan. Setelah itu, hasil pengurangan diubah kembali menjadi string agar bisa ditampilkan ke user melalui `printString`. 
+
+5. Menambahkan fitur factorial yaitu `fac` untuk mencari faktorial dari nilai yang diberikan dan memberikan batasan sampai 16-bit.
+
+```
+int factorial(int n) {
+    int result = 1;
+    int i;
+    if (n == 0 || n == 1) return 1;
+    for (i = 2; i <= n; i++) {
+        result = result * i;
+        if (result < 0) return -1;
+    }
+    return result;
+}
+```
+Pertama, ada fungsi factorial untuk menghitung hasil faktorial dari angka inputan user (n). Jika `n = 0` atau `n = 1`, maka akan langsung menghasilkan angka 1. Jika tidak, maka perkalian dilakukan dari 2 sampai angka ke-n secara berurutan dan hasilnya disimpan di variabel `result`. Kemudian kondisi ketika `result < 0` adalah jika hasil perkalian sudah melebihi batas maksimum integer dan nilainya menjadi negatif, maka fungsi langsung mengembalikan -1.
+
+```
+else if (startsWith(cmd, "fac ")) {
+            i = 4;
+            j = 0;
+            while (cmd[i] != '\0') n[j++] = cmd[i++];
+            n[j] = '\0';
+            result = factorial(atoi(n));
+            if (result == -1) {
+                printString("know your limit little bro.");
+            } else {
+                intToString(result, buffer);
+                printString(buffer);
+            }
+}
+```
+Kemudian, perintah di sini membaca input user yaitu `fac ` dan angka yang akan difaktorialkan. Program membaca dari karakter ke 4 setelah spasi dan menyimpannya ke array `n` sebagai angka yang akan dihitung faktorialnya. Angka tersebut kemudian dikonversi dari string ke integer dengan memanggil fungsi `atoi(n)` lalu dimasukkan ke fungsi faktorial dan ke variabel `result`. Jika `result = -1`, maka akan menampilkan pesan. Jika tidak, maka hasilnya dikonversi kembali ke string untuk ditampilkan.
+
+6. Menambahkan fitur tambahan `season` untuk memberikan warna dalam sistem: winter, spring, summer, fall, dan radiant.
+
+```
+else if (startsWith(cmd, "season ")) {
+            i = 7;
+            j = 0;
+            while (cmd[i] != '\0') name[j++] = cmd[i++];
+            name[j] = '\0';
+            if (strcmp(name, "winter")) {
+               color = 0x01; // blue
+               printString("winter mode");
+            } else if (strcmp(name, "spring")) {
+               color = 0x02; // green
+               printString("spring mode");
+            } else if (strcmp(name, "summer")) {
+               color = 0x0E; // yellow
+               printString("summer mode");
+            } else if (strcmp(name, "fall")) {
+               color = 0x06; // orange/brown
+               printString("fall mode");
+            } else if (strcmp(name, "radiant")) {
+               color = 0x0D; // pink
+               printString("radiant mode");
+            }
+         }
+```
+Kondisi ketika command user adalah `season` untuk mengubah warna teks sesuai musim. Program akan membaca karakter ke-7 setelah `season ` termasuk spasi dan menyimpannya ke array `name` sebagai nama dari musim. Setelah itu, nama akan dibandingkan dengan `strcmp` sesuai nama season yang tersedia, jika sesuai maka variabel color diisi dengan kode warna dan menampilkan pesan mode yang aktif.
+
+7. Menambahkan fitur `triangle` untuk mencetak segitiga sesuai baris angka yang diminta user.
+
+```
+else if (startsWith(cmd, "triangle ")) {
+            i = 9;
+            j = 0;
+            while (cmd[i] != '\0') n[j++] = cmd[i++];
+            n[j] = '\0';
+            rows = atoi(n);
+            for (r = 1; r <= rows; r++) {
+               for (c = 0; c < r; c++) {
+                  printChar('x');
+               }
+               newline();
+            }
+         }
+```
+Kondisi ketika command user adalah `triangle` maka program akan mencetak segitiga dari karakter `x` sesuai angka yang diinput user. Program akan membaca karakter ke-9 setelah command user, lalu menyimpannya ke array `n` sebagai angka dari jumlah baris yang diinginkan. Setelah itu dikonversi ke integer dengan `atoi(n)` dan disimpan ke variabel `rows`. Kemudian, dilakukan loop 2 dimensi, bagian luar berjalan dari 1 sampai variabel `rows` untuk setiap baris, sedangkan bagian dalam untuk mencetak karakter `x` sebanyak `r` kali di setiap barisnya. 
+
+8. Menambahkan fitur `clear` untuk menghapus histori command dan fitur `help` untuk membantu user mengetahui command apa saja yang dapat digunakan. K
+
+```
+void clearScreen() {
+    int i;
+    for (i = 0; i < 2000; i++) {
+        putInMemory(0xB800, i * 2, ' ');
+        putInMemory(0xB800, i * 2 + 1, color);
+    }
+    cursor = 0;
+}
+```
+Fungsi `clearScreen` untuk membersihkan seluruh layar. Perintah di dalamnya adalah menulis karakter spasi sebanyak 2000 kali langsung ke memory video dengan alamat `0xB800`, dengan `i * 2` untuk menyimpan karakter spasi dan `i * 2 + 1` untuk menyimpan warna yang sedang aktif. Setelah membersihkan layar, cursor kembali diletakkan di atas layar. 
+
+```
+else if (strcmp(cmd, "clear")) {
+            clearScreen();
+        }
+```
+Ini adalah kondisi ketika user memberikan command `clear` dan memanggil fungsi `clearScreen()`.
+
+```
+else if (strcmp(cmd, "help")) {
+            printString("check add sub fac season triangle clear about");
+        }
+```
+Kondisi ketika command user adalah `help`, maka akan mencetak command-command apa saja yang tersedia dan dapat dijalankan.
+
+### OUTPUT
+1. Make build
+<img width="902" height="423" alt="image" src="https://github.com/user-attachments/assets/25331fc7-c05d-4c02-85aa-bcec97673b39" />
+
+2. Make run
+<img width="902" height="818" alt="image" src="https://github.com/user-attachments/assets/3a3a1a2b-e872-4486-8e09-25375a5bd6c5" />
