@@ -531,6 +531,32 @@ rm -f osboot/bzImage osboot/single.gz osboot/multi.gz osboot/farewell.iso
 Untuk nama file zipnya adalah `farewell_backup_[DDMMYYYY-HHMMSS].zip` dengan timestamp menggunakan waktu saat itu. Kemudian, file tersebut disimpan dalam bentuk zip. Setelah berhasil melakukan backup, file aslinya dihapus.
 
 ### OUTPUT
+1. Menjalankan `kernel.sh`
+<img width="901" height="249" alt="image" src="https://github.com/user-attachments/assets/28c2c341-2301-4406-b73e-f990fe36d9fc" />
+
+2. Melakukan config
+<img width="913" height="897" alt="image" src="https://github.com/user-attachments/assets/c343b9b0-e27a-4cc0-9b9d-a300074e074a" />
+
+3. Tampilan ketika sudah selesai:
+<img width="904" height="104" alt="image" src="https://github.com/user-attachments/assets/17086f94-00bc-47ca-91c0-cafe6bd7c19d" />
+
+4. Menjalankan `single.sh`
+<img width="901" height="426" alt="image" src="https://github.com/user-attachments/assets/9042f9a3-2001-4e56-9e30-db5bfabe8cd2" />
+
+5. Menjalankan `multi.sh`
+<img width="910" height="126" alt="image" src="https://github.com/user-attachments/assets/b54eaa4a-9f8d-464e-8e8c-4c804b090a7a" />
+
+6. Menjalankan `iso.sh`
+<img width="899" height="406" alt="image" src="https://github.com/user-attachments/assets/d754e2b6-0d42-452e-8463-eb78f1b90d90" />
+
+7. Menjalankan `./qemu.sh --single`
+<img width="861" height="285" alt="image" src="https://github.com/user-attachments/assets/15d17eb8-f3b2-44da-b4b6-ba2ea11b3ca6" />
+
+- Membuka `/bin`
+<img width="726" height="598" alt="image" src="https://github.com/user-attachments/assets/7d388adc-5056-4bcc-948b-bc8f73ebf051" />
+
+- Membuka `/dev`
+<img width="790" height="394" alt="image" src="https://github.com/user-attachments/assets/a1a90f12-8899-42bc-abad-663b1dc60585" />
 
 
 ### Soal 2
