@@ -565,12 +565,24 @@ Untuk nama file zipnya adalah `farewell_backup_[DDMMYYYY-HHMMSS].zip` dengan tim
 <img width="797" height="226" alt="image" src="https://github.com/user-attachments/assets/5556e2ed-a0a4-4ab3-bf55-ec6bd8ba206d" />
 
 7. Menjalankan `./qemu.sh --multi`
-- Login sebagai root
+- Login sebagai `root`
 <img width="748" height="570" alt="image" src="https://github.com/user-attachments/assets/ed151d4a-5ebb-458d-97a5-aeb06080d9f3" />
  
 - Masuk ke direktori lain (root bisa akses apapun)
 <img width="822" height="71" alt="image" src="https://github.com/user-attachments/assets/3b72147f-d520-4533-baf2-966f0a25d1f6" />
 
+- Login user `henn`
+<img width="766" height="611" alt="image" src="https://github.com/user-attachments/assets/1b354586-591a-4273-a950-f942775985b4" />
+
+Membuka direktori lain yaitu /home/* dan /kids
+<img width="600" height="245" alt="image" src="https://github.com/user-attachments/assets/7877a097-ba67-4f90-80fd-4553f03b3c1f" />
+Untuk output ini, belum sesuai dengan soal. Yang sesuai hanya ketika user `henn` tidak dapat mengakses `/root`.
+
+- Login user `hann`
+<img width="791" height="597" alt="image" src="https://github.com/user-attachments/assets/5a2b5f93-abe2-40ea-99c8-18c997edfe62" />
+
+User `hann` dapat mengakses ke `/home/{hann,viii,kids}` dan tidak bisa ke `/root` dan `/home/henn`
+<img width="698" height="416" alt="image" src="https://github.com/user-attachments/assets/e160728f-1d25-46d2-aa65-cca4fdde512b" />
 
 #### Kendala
 Tidak bisa melakukan akses internet.
