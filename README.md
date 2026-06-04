@@ -584,6 +584,18 @@ Untuk output ini, belum sesuai dengan soal. Yang sesuai hanya ketika user `henn`
 User `hann` dapat mengakses ke `/home/{hann,viii,kids}` dan tidak bisa ke `/root` dan `/home/henn`
 <img width="698" height="416" alt="image" src="https://github.com/user-attachments/assets/e160728f-1d25-46d2-aa65-cca4fdde512b" />
 
+- Login user `viii`
+<img width="763" height="587" alt="image" src="https://github.com/user-attachments/assets/61e0a2a7-aeb6-41d2-b969-098e9ae0ada4" />
+
+User `viii` dapat mengakses ke `/home/{viii,kids}` dan tidak bisa ke `/root` dan `/home/{henn,hann}`
+<img width="566" height="374" alt="image" src="https://github.com/user-attachments/assets/b8ed0dec-a746-4d88-82d1-07b84095c3e9" />
+
+- Login user `kids`
+<img width="789" height="584" alt="image" src="https://github.com/user-attachments/assets/e7ec89f1-132c-4fef-8836-ca30d4a9f3cc" />
+
+User kids dapat mengakses ke /home/kids dan tidak bisa ke /root dan /home/{henn,hann,viii}
+<img width="670" height="350" alt="image" src="https://github.com/user-attachments/assets/6993d0dc-3d61-44fa-a809-ee934145b20a" />
+
 #### Kendala
 Tidak bisa melakukan akses internet.
 
