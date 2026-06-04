@@ -565,6 +565,122 @@ if (strcmp(cmd, "check")) {
             printString("ok");
 ```
 
+Fungsi `newline()`:
+
+```
+void newline() {
+    int column = cursor;
+    while (column >= 80) column -= 80;
+    cursor = cursor + (80 - column);
+}
+```
+Fungsi ini adalah untuk membuat newline, yaitu memindahkan kursor ke baris berikutnya. Ketika nilai `column >= 80`, maka nilai column akan dikurangi sampai kurang dari 80 untuk mencari tahu kursor sedang berada di kolom berapa. Setelah posisi kolom diketahui, selanjutnya dihitung berapa langkah yang dibutuhkan ke awal baris berikutnya.
+
+Fungsi `readString()`:
+
+```
+void readString(char *buffer) {
+    int i = 0;
+    char c;
+    while (1) {
+        c = getChar();
+        if (c == '\r') {
+            buffer[i] = '\0';
+            break;
+        }
+        else if (c == '\b' && i > 0) {
+         i--;
+         cursor--;
+         putInMemory(0xB800, cursor * 2, ' ');
+       }
+       else
+       {
+         buffer[i] = c;
+         printChar(c);
+         i++;
+       }
+    }
+}
+```
+Fungsi ini untuk membaca input user karakter per karakter sampai Enter. Pada perulangan while, memanggil `getChar()` untuk menunggu dan mengambil satu karakter yang ditekan user. Jika yang ditekan adalah `\r` (Enter), maka string ditutup dengan `\0` dan loop berhenti. 
+
+Fungsi `strcmp()`
+```
+int strcmp(char *str1, char *str2) {
+    int i = 0;
+    while (str1[i] != '\0' && str2[i] != '\0') {
+       if (str1[i] != str2[i]) return 0;
+       i++;
+    }
+    return str1[i] == '\0' && str2[i] == '\0';
+}
+```
+
+Fungsi `startsWith()`
+```
+int startsWith(char *str, char *prefix) {
+    int i = 0;
+    while (prefix[i] != '\0') {
+       if (str[i] != prefix[i]) return 0;
+       i++;
+    }
+    return 1;
+}
+```
+
+Fungsi `atoi()`
+```
+int atoi(char *str) {
+    int result = 0;
+    int i = 0;
+    int neg = 0;
+    if (str[0] == '-') {
+        neg = 1;
+        i = 1;
+    }
+    while (str[i] >= '0' && str[i] <= '9') {
+       result = result * 10 + (str[i] - '0');
+       i++;
+    }
+    if (neg) return -result;
+    return result;
+}
+```
+
+Fungsi `intToString()`
+```
+void intToString(int n, char *buffer) {
+   int i = 0;
+   int j = 0;
+   int neg = 0;
+   int digit;
+   int q;
+   char temp[16];
+   if (n == 0) {
+      buffer[0] = '0';
+      buffer[1] = '\0';
+      return;
+   }
+   if (n < 0) {
+      neg = 1;
+      n = -n;
+   }
+   while (n > 0) {
+      digit = n;
+      q = 0;
+      while (digit >= 10) {
+        digit -= 10;
+        q++;
+      }
+      temp[i++] = '0' + digit;
+      n = q;
+   }
+   if (neg) buffer[j++] = '-';
+   while (i > 0) buffer[j++] = temp[--i];
+   buffer[j] = '\0';
+}
+```
+
 3. Menambahkan fitur `add` untuk fitur pertambahan pada sistem operasi.
 
 ```
